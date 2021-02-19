@@ -1,5 +1,7 @@
 package com.test.springvalidation.entities;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,6 +16,8 @@ public class Jogador {
     private Long id;
     private String name;
     private Integer age;
+
+    @JsonFormat(pattern ="dd-MM-yyyy HH:mm:ss")
     private LocalDateTime instante = LocalDateTime.now();
 
 
@@ -26,7 +30,11 @@ public class Jogador {
         this.age = age;
     }
 
-    public Long getId() {
-        return id;
+    public String getName() {
+        return name;
+    }
+
+    public Integer getAge() {
+        return age;
     }
 }
